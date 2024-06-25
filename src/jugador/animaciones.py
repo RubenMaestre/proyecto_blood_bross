@@ -5,22 +5,22 @@ import pygame
 class AnimacionesJugador:
     def __init__(self):
         self.idle_espalda = pygame.image.load("src/jugador/animaciones/idle/espalda.png")
-        self.idle_izquierda = pygame.image.load("src/jugador/animaciones/idle/perfil_izquierdo.png")
-        self.idle_derecha = pygame.image.load("src/jugador/animaciones/idle/perfil_derecho.png")
-        
+        self.idle_izquierda = pygame.image.load("src/jugador/animaciones/idle/izquierda.png")
+        self.idle_derecha = pygame.image.load("src/jugador/animaciones/idle/derecha.png")
+        """"
         self.correr_izquierda = [
-            pygame.image.load("src/jugador/animaciones/correr/correr_izquierda_1.png"),
-            pygame.image.load("src/jugador/animaciones/correr/correr_izquierda_2.png"),
+            pygame.image.load("src/jugador/animaciones/correr/izquierda.png"),
+            pygame.image.load("src/jugador/animaciones/correr/izquierda.png"),
         ]
         
         self.correr_derecha = [
-            pygame.image.load("src/jugador/animaciones/correr/correr_derecha_1.png"),
-            pygame.image.load("src/jugador/animaciones/correr/correr_derecha_2.png"),
+            pygame.image.load("src/jugador/animaciones/correr/derecha.png"),
+            pygame.image.load("src/jugador/animaciones/correr/derecha.png"),
         ]
         
-        self.disparar_espalda = pygame.image.load("src/jugador/animaciones/disparar/disparar_espalda.png")
-        self.disparar_izquierda = pygame.image.load("src/jugador/animaciones/disparar/disparar_izquierda.png")
-        self.disparar_derecha = pygame.image.load("src/jugador/animaciones/disparar/disparar_derecha.png")
+        self.disparar_espalda = pygame.image.load("src/jugador/animaciones/disparar/espalda.png")
+        self.disparar_izquierda = pygame.image.load("src/jugador/animaciones/disparar/izquierda.png")
+        self.disparar_derecha = pygame.image.load("src/jugador/animaciones/disparar/dderecha.png")
         
         self.voltereta_izquierda = [
             pygame.image.load("src/jugador/animaciones/voltereta/voltereta_izquierda_1.png"),
@@ -30,7 +30,7 @@ class AnimacionesJugador:
         self.voltereta_derecha = [
             pygame.image.load("src/jugador/animaciones/voltereta/voltereta_derecha_1.png"),
             pygame.image.load("src/jugador/animaciones/voltereta/voltereta_derecha_2.png"),
-        ]
+        ]"""
 
     def obtener_imagen(self, accion, direccion, frame):
         if accion == "idle":
