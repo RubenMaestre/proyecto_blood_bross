@@ -5,8 +5,8 @@ import os
 import pygame
 import time
 import cv2
-from moviepy.editor import VideoFileClip
 import random
+from moviepy.editor import VideoFileClip
 
 # Añadir el directorio 'src' al sys.path
 sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
@@ -31,6 +31,8 @@ class Menu:
             (ANCHO - self.fuente_menu.size(self.opciones[1])[0] - 50, ALTO - 150),
             (ANCHO - self.fuente_menu.size(self.opciones[2])[0] - 50, ALTO - 80)
         ]
+        self.icono_tiempo = pygame.image.load("recursos/imagenes/menu/tiempo.png")
+        self.angulo_tiempo = 0
 
     def bucle_principal(self):
         while self.corriendo:
@@ -77,13 +79,18 @@ class Menu:
             self.corriendo = False
 
     def transicion_a_nueva_partida(self):
-        # Transición en negro
+        # Transición en negro con icono giratorio
+        tiempo_icono_centro = (ANCHO // 2, ALTO // 2)
         for alpha in range(0, 255, 5):
             self.pantalla.fill(NEGRO)
             s = pygame.Surface((ANCHO, ALTO))
             s.set_alpha(alpha)
             s.fill(NEGRO)
             self.pantalla.blit(s, (0, 0))
+            self.angulo_tiempo = (self.angulo_tiempo + 10) % 360
+            icono_rotado = pygame.transform.rotate(self.icono_tiempo, self.angulo_tiempo)
+            icono_rect = icono_rotado.get_rect(center=tiempo_icono_centro)
+            self.pantalla.blit(icono_rotado, icono_rect.topleft)
             pygame.display.flip()
             pygame.time.wait(10)
 
@@ -98,6 +105,9 @@ class Menu:
         self.reproducir_video_y_audio("recursos/videos/video_1.mp4", "recursos/videos/video_1_audio.mp3")
 
     def reproducir_video_y_audio(self, ruta_video, ruta_audio):
+        # Asegurarse de que el volumen esté al máximo
+        pygame.mixer.music.set_volume(1.0)
+
         # Iniciar reproducción de audio
         pygame.mixer.music.load(ruta_audio)
         pygame.mixer.music.play()
