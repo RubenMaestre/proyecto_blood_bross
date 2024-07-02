@@ -24,6 +24,7 @@ class Menu:
         self.fondo_menu = pygame.image.load("recursos/imagenes/menu/background.jpg")
         self.fuente_titulo = pygame.font.Font("recursos/fuentes/Orbitron-Bold.ttf", 120)
         self.fuente_menu = pygame.font.Font("recursos/fuentes/Orbitron-Bold.ttf", 50)
+        self.fuente_info = pygame.font.Font("recursos/fuentes/Orbitron-Bold.ttf", 30)  # Nueva fuente para la información
         self.seleccion = 0
         self.opciones = ["Nueva Partida", "Opciones", "Salir"]
         self.posiciones = [
@@ -152,6 +153,7 @@ class Menu:
     def dibujar(self):
         self.pantalla.blit(self.fondo_menu, (0, 0))
         self.mostrar_menu()
+        self.mostrar_info()  # Llamar a la función para mostrar la información adicional
         pygame.display.flip()
 
     def mostrar_menu(self):
@@ -162,6 +164,12 @@ class Menu:
             color = BLANCO if i == self.seleccion else GRIS
             texto = self.fuente_menu.render(opcion, True, color)
             self.pantalla.blit(texto, self.posiciones[i])
+
+    def mostrar_info(self):
+        texto_realizado_por = self.fuente_info.render("Realizado por Rubén Maestre", True, BLANCO)
+        texto_version = self.fuente_info.render("Versión: 0.1", True, BLANCO)
+        self.pantalla.blit(texto_realizado_por, (50, ALTO - 100))
+        self.pantalla.blit(texto_version, (50, ALTO - 60))
 
 def reproducir_musica(musica_menu):
     if musica_menu:
