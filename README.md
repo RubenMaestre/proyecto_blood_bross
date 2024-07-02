@@ -1,4 +1,4 @@
-# Blood Bros Style Game
+# Rogue Hunter (Blood Bros Style Game)
 
 Este proyecto surge de la idea de construir un juego inspirado en el clásico Blood Bros para poner en práctica mis conocimientos de Python y la librería Pygame. Inicialmente, mi objetivo era seguir practicando con Pygame para un proyecto más grande, PCFutsal, que está actualmente en pausa debido al verano. Pensé que desarrollar un juego arcade sería sencillo, pero pronto descubrí que es una tarea más compleja de lo que imaginaba.
 
